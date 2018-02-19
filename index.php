@@ -21,7 +21,7 @@ class ShopProduct
 }
 $product1 = new ShopProduct("Собачье сердце", "Булгаков", "Михаил", 5.99);
 
-print "Автор: {$product1->getProducer()} <br> ";
+//print "Автор: {$product1->getProducer()} <br> ";
 
 class AddressManager
 {
@@ -48,10 +48,10 @@ class AddressManager
        
     }
 }
-$settings = simplexml_load_file("settings.xml");
-$manager = new AddressManager();
+//$settings = simplexml_load_file("settings.xml");
+//$manager = new AddressManager();
 //var_dump($settings->resolvedomains);exit;
-$manager->outputAddresses((string)$settings->resolvedomains);
+//$manager->outputAddresses((string)$settings->resolvedomains);
 
 
 ?>
