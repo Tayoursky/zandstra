@@ -1,29 +1,20 @@
 <?php 
-class ShopProduct
-{
-    public $title             = "Стандартный товар";
-    public $producerMainName  = "Булгаков";
-    public $producerFirstName = "Михаил";
-    public $price             = 5.99;
-    
-    function __construct($title, $producerMainName, $producerFirstName, $price)
-    {
-        $this->title             = $title;
-        $this->producerMainName  = $producerMainName;
-        $this->producerFirstName = $producerFirstName;
-        $this->price             = $price;
-    }
-    function getProducer()
-    {
-        return  "{$this->producerFirstName} "
-               ."{$this->producerMainName}\n";
-    }
+function __autoload( $className ) {
+  $className = str_replace( "..", "", $className );
+  require_once( "classes/$className.php" );
+  echo "Loaded classes/$className.php<br>";
 }
-$product1 = new ShopProduct("Собачье сердце", "Булгаков", "Михаил", 5.99);
+
+
+$product1 = new BookProduct("Собачье сердце", "Михаил","Булгаков", 5.99, 40);
+$writer = new ShopProductWriter();
+$writer->addProduct($product1);
+$writer->write($product1);
+//$product1 = new ShopProduct("Собачье сердце", "Булгаков", "Михаил", 5.99);
 
 //print "Автор: {$product1->getProducer()} <br> ";
 
-class AddressManager
+/*class AddressManager
 {
     private $addresses = array("209.131.36.159", "74.125.19.106");
     
@@ -47,7 +38,7 @@ class AddressManager
         }
        
     }
-}
+}*/
 //$settings = simplexml_load_file("settings.xml");
 //$manager = new AddressManager();
 //var_dump($settings->resolvedomains);exit;
