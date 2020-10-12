@@ -1,11 +1,13 @@
-<?php 
+<?php
+namespace classes;
+
 class ShopProduct
 {
     private $title;
     private $producerMainName;
     private $producerFirstName;
     protected $price;
-    private $discount =0;
+    private $discount = 0;
     
     function __construct($title, $firstName, $mainName, $price)
     {
@@ -19,11 +21,11 @@ class ShopProduct
     {
         return $this->producerFirstName;
     }
-    public function getproducerMainName()
+    public function getProducerMainName()
     {
         return $this->producerMainName;
     }
-    public function setDiscount($num)
+    public function setDiscount(int $num)
     {
         $this->discount = $num;
     }
@@ -46,7 +48,7 @@ class ShopProduct
     }
     public function getSummaryLine()
     {
-        $base = "{$this->$title} ( {$this->producerMainName}, ";
+        $base = "{$this->title} ( {$this->producerMainName}, ";
         $base .= "{$this->producerFirstName} )";
         return $base;
     }

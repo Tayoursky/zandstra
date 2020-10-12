@@ -1,15 +1,29 @@
 <?php 
-function __autoload( $className ) {
+/*function __autoload( $className ) {
   $className = str_replace( "..", "", $className );
   require_once( "classes/$className.php" );
   echo "Loaded classes/$className.php<br>";
-}
+}*/
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+use classes\BookProduct;
+use classes\ShopProductWriter;
+
+define('ROOT', dirname(__DIR__) . '/zandstra');
+
+spl_autoload_register(function ($className) {
+  $file = ROOT . '/' . str_replace('\\', '/', $className). '.php';
+  if (is_file($file))
+    include_once $file;
+});
 
 
 $product1 = new BookProduct("Собачье сердце", "Михаил","Булгаков", 5.99, 40);
 $writer = new ShopProductWriter();
 $writer->addProduct($product1);
-$writer->write($product1);
+//$writer->write($product1);
 //$product1 = new ShopProduct("Собачье сердце", "Булгаков", "Михаил", 5.99);
 
 //print "Автор: {$product1->getProducer()} <br> ";

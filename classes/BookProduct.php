@@ -1,9 +1,12 @@
-<?php 
+<?php
+namespace classes;
+
+
 class BookProduct extends ShopProduct
 {
-    private $numPages = 0;
+    private $numPages;
     
-    public function __construct($title, $firstName, $mainName, $price, $numPages)
+    public function __construct($title, $firstName, $mainName, $price, $numPages = 0)
     {
         parent::__construct($title, $firstName, $mainName, $price);
         $this->numPages = $numPages;
@@ -25,4 +28,4 @@ class BookProduct extends ShopProduct
 }
 
 
-?>
+

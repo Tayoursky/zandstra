@@ -1,4 +1,7 @@
-<?php 
+<?php
+namespace classes;
+
+
 class ShopProductWriter
 {
     private $products = array();
