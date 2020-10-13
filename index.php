@@ -19,6 +19,10 @@ spl_autoload_register(function ($className) {
     include_once $file;
 });
 
+$db = new \PDO('mysql:host=localhost;dbname=zandstra;charset=utf8', 'root', '5Maz8UXF', array(
+    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
+));
 
 $product1 = new BookProduct("Собачье сердце", "Михаил","Булгаков", 5.99, 40);
 $writer = new ShopProductWriter();
