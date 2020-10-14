@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 use classes\BookProduct;
+use classes\ShopProduct;
 use classes\ShopProductWriter;
 
 define('ROOT', dirname(__DIR__) . '/zandstra');
@@ -19,14 +20,19 @@ spl_autoload_register(function ($className) {
     include_once $file;
 });
 
-$db = new \PDO('mysql:host=localhost;dbname=zandstra;charset=utf8', 'root', '5Maz8UXF', array(
-    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
-));
+//mysql:host=localhost;dbname=zandstra;charset=utf8
+//$pdo = new \PDO('sqlite:/' . ROOT . '/products.db', null, null);
+//$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+//$obj = ShopProduct::getInstance(2, $pdo);
+
+//echo '<pre>';
+//var_dump($obj);
+//echo '</pre>';
 
 $product1 = new BookProduct("Собачье сердце", "Михаил","Булгаков", 5.99, 40);
-$writer = new ShopProductWriter();
-$writer->addProduct($product1);
+//$writer = new ShopProductWriter();
+//$writer->addProduct($product1);
 //$writer->write($product1);
 //$product1 = new ShopProduct("Собачье сердце", "Булгаков", "Михаил", 5.99);
 

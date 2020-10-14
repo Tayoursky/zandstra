@@ -1,4 +1,6 @@
-<?php 
+<?php
+namespace classes;
+
 class CDProduct extends ShopProduct
 {
     private $playLength = 0;
@@ -6,7 +8,7 @@ class CDProduct extends ShopProduct
     public function __construct($title, $firstName, $mainName, $price, $playLength)
     {
         parent::__construct($title, $firstName, $mainName, $price);
-        $this->playLength        = $playLength;
+        $this->playLength = $playLength;
     }
     public function getPlayLength()
     {

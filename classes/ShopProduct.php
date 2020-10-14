@@ -1,7 +1,8 @@
 <?php
 namespace classes;
 
-class ShopProduct
+
+class ShopProduct implements Chargeable
 {
     private $id = 0;
     private $title;
@@ -43,7 +44,8 @@ class ShopProduct
     {
         return $this->title;
     }
-    public function getPrice()
+
+    public function getPrice(): float
     {
         return ($this->price - $this->discount);
     }
@@ -77,7 +79,7 @@ class ShopProduct
           (int) $row['numpages']
             );
         } elseif ($row['type'] == "cd") {
-            $product = new \CDProduct(
+            $product = new CDProduct(
                 $row['title'],
                 $row['firstname'],
                 $row['mainname'],

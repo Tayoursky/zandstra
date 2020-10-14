@@ -2,15 +2,16 @@
 namespace classes;
 
 
-class ShopProductWriter
+abstract class ShopProductWriter
 {
-    private $products = array();
+    protected $products = array();
     
     public function addProduct(ShopProduct $shopProduct)
     {
         $this->products[] = $shopProduct;
     }
-    public function write(){
+    abstract public function write();
+    /*{
         $str = "";
         foreach($this->products as $shopProduct)
         {
@@ -21,7 +22,7 @@ class ShopProductWriter
         }
         print $str;
         
-    }
+    }*/
     
 }
 
